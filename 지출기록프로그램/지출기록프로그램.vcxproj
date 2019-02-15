@@ -18,6 +18,21 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AccountException.h" />
+    <ClInclude Include="BoundCheckArray.h" />
+    <ClInclude Include="control.h" />
+    <ClInclude Include="expense.h" />
+    <ClInclude Include="ExpenseCommon.h" />
+    <ClInclude Include="String.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AccountExceptioncpp.cpp" />
+    <ClCompile Include="control.cpp" />
+    <ClCompile Include="expense.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="String.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{7BBB0939-0BF2-41ED-8441-ED2FA2EF5078}</ProjectGuid>
@@ -114,8 +129,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

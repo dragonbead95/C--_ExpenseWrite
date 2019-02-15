@@ -1,0 +1,16 @@
+class 비용
+private:
+String	날짜
+int	금액
+String	용도
+int	분류
+
+public:
+	GetDate() const
+	GetMoney() const
+	GetUsing() const
+	GetCategory() const
+	SetDate()
+	SetMoney()
+	SetUsing()
+	SetCategory()
