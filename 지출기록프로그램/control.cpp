@@ -20,6 +20,8 @@ void control::write()
 	cin >> myDate >> mymoney >> myUsing >> myCategory;
 
 	try {
+		if (myDate.isDate() == false)
+			throw DateException(myDate);
 		if (mymoney < 0)
 			throw MinusException(mymoney);
 		if (myCategory < 1 || myCategory>12)

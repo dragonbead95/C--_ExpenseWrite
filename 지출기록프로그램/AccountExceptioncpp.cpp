@@ -23,3 +23,13 @@ void CategoryException::ShowExceptionReason()
 {
 	cout << "[예외 메시지: 1~12 사이의 숫자를 입력해주세요]" << endl;
 }
+
+DateException::DateException(String s)
+{
+	str = s;
+}
+
+void DateException::ShowExceptionReason()
+{
+	cout << "[예외 메시지: " << str << "은(는) 규격에 맞지않습니다.(ex 2019-02-16)]" << endl;
+}

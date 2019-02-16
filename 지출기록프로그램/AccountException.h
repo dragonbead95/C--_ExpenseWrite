@@ -1,5 +1,6 @@
 #ifndef __ACCOUNT_EXCPETION_H_
 #define __ACCOUNT_EXCPETION_H_
+#include "String.h"
 
 class ExpenseException
 {
@@ -25,4 +26,12 @@ public:
 	void ShowExceptionReason();
 };
 
+class DateException : public ExpenseException
+{
+private:
+	String str;
+public:
+	DateException(String s);
+	void ShowExceptionReason();
+};
 #endif // !__ACCOUNT_EXCPETION_H_

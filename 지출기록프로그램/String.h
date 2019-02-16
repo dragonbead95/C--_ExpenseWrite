@@ -26,6 +26,7 @@ public:
 	bool operator==(const String& s);	// ==연산자의 오버로딩
 	friend ostream& operator<<(ostream& os, const String& s);	//<<연산자
 	friend istream& operator>>(istream& is, String& s);	//>> 연산자
+	bool isDate() const; // 날짜검사
 };
 
 #endif
