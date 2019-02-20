@@ -24,6 +24,27 @@ int main(void)
 			break;
 		case ALLSEARCH: manager.ShowAllExpense();
 			break;
+		case SEARCH:
+			manager.ShowSearchMenu();
+			cout << "¼±ÅÃ : ";
+			cin >> number;
+			switch (number)
+			{
+			case search::DATE_SEARCH:
+				manager.ShowDateSearch();
+				break;
+			case search::MONEY_SEARCH:
+				manager.ShowMoneySearch();
+				break;
+			case search::CATEGORY_SEARCH:
+				manager.ShowCategorySearch();
+				break;
+			case search::BACK:
+				break;
+			case search::SEARCH_EXIT:
+				exit(1);
+			}
+			break;
 		case EXIT: exit(1);
 		default:
 			continue;

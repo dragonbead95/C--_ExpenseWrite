@@ -30,6 +30,7 @@ public:
 	void SetUsing(string myUsing);
 	void Setcategory(int myCategory);
 	void ShowExpenseInfo() const;
+
 };
 
 #endif // !__EXPENSE_H_

@@ -1,8 +1,8 @@
 #ifndef __EXPENSE_COMMON_H_
 #define __EXPENSE_COMMON_H_
 
-enum {WRITE=1,ALLSEARCH,EXIT};	// 1. 지출기록, 2. 지출전체검색 3. 종료
-
+enum {WRITE=1,ALLSEARCH,SEARCH,EXIT};	// 1. 지출기록, 2. 지출전체검색 3. 종료
+enum search {DATE_SEARCH=1,MONEY_SEARCH,CATEGORY_SEARCH,BACK,SEARCH_EXIT};
 /*1.식비
 	2. 교통비
 	3. 통신비
