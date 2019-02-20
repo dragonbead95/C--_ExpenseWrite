@@ -24,14 +24,12 @@
     <ClInclude Include="control.h" />
     <ClInclude Include="expense.h" />
     <ClInclude Include="ExpenseCommon.h" />
-    <ClInclude Include="String.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AccountExceptioncpp.cpp" />
     <ClCompile Include="control.cpp" />
     <ClCompile Include="expense.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="String.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

@@ -3,14 +3,14 @@
 /*생성자*/
 expense::expense()
 {
-	Date = NULL;
+	Date = "";
 	money = 0;
-	Using = NULL;
+	Using = "";
 	category = 0;
 }
 
 /*생성자*/
-expense::expense(String myDate, int myMoney, String myUsing, int myCategory)
+expense::expense(string myDate, int myMoney, string myUsing, int myCategory)
 	: money(myMoney),category(myCategory)
 {
 	Date = myDate;
@@ -18,7 +18,7 @@ expense::expense(String myDate, int myMoney, String myUsing, int myCategory)
 }
 
 /*날짜 반환*/
-String expense::GetDate() const
+string expense::GetDate() const
 {
 	return Date;
 }
@@ -30,7 +30,7 @@ int expense::GetMoney() const
 }
 
 /*용도 반환*/
-String expense::GetUsing() const
+string expense::GetUsing() const
 {
 	return Using;
 }
@@ -42,7 +42,7 @@ int expense::GetCategory() const
 }
 
 /*날짜 설정*/
-void expense::SetDate(String myDate)
+void expense::SetDate(string myDate)
 {
 	Date = myDate;
 }
@@ -54,7 +54,7 @@ void expense::SetMoney(int myMoney)
 }
 
 /*용도 설정*/
-void expense::SetUsing(String myUsing)
+void expense::SetUsing(string myUsing)
 {
 	Using = myUsing;
 }

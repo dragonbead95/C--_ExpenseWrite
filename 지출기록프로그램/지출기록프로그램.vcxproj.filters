@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\문자열">
-      <UniqueIdentifier>{62bf5436-94d6-48c7-a398-0a2ee2223c8d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\비용">
       <UniqueIdentifier>{b9b39305-a671-4a24-8fa3-a47b7333e88f}</UniqueIdentifier>
     </Filter>
@@ -34,9 +31,6 @@
     <Filter Include="헤더 파일\예외">
       <UniqueIdentifier>{42b2880c-3a51-406c-a023-bdb93cca32a2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\문자열">
-      <UniqueIdentifier>{f51fdefa-2206-46c3-9f2d-f39af8535920}</UniqueIdentifier>
-    </Filter>
     <Filter Include="헤더 파일\제어">
       <UniqueIdentifier>{40e9112c-d73f-4d02-bbcf-91f99372c103}</UniqueIdentifier>
     </Filter>
@@ -54,9 +48,6 @@
     <ClInclude Include="AccountException.h">
       <Filter>헤더 파일\예외</Filter>
     </ClInclude>
-    <ClInclude Include="String.h">
-      <Filter>헤더 파일\문자열</Filter>
-    </ClInclude>
     <ClInclude Include="control.h">
       <Filter>헤더 파일\제어</Filter>
     </ClInclude>
@@ -68,9 +59,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="String.cpp">
-      <Filter>소스 파일\문자열</Filter>
-    </ClCompile>
     <ClCompile Include="expense.cpp">
       <Filter>소스 파일\비용</Filter>
     </ClCompile>

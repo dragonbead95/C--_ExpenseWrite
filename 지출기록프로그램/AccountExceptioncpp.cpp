@@ -24,7 +24,7 @@ void CategoryException::ShowExceptionReason()
 	cout << "[예외 메시지: 1~12 사이의 숫자를 입력해주세요]" << endl;
 }
 
-DateException::DateException(String s)
+DateException::DateException(string s)
 {
 	str = s;
 }

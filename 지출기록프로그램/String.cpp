@@ -104,6 +104,7 @@ bool String::isDate() const
 		return false;
 	}
 
+	// 날짜의 규격이 맞는지 검사하는 반복 조건문
 	for (int k = 0;k <len;k++)
 	{
 		if (k == 4 || k == 7)
@@ -116,11 +117,7 @@ bool String::isDate() const
 				return false;
 		}
 	}
-	/*str중에 1월부터 12월까지만 제한을 두어야 하는데 일단 조각조각 검사되서
-	숫자는 맞지만 13이나 14같이 월을 넘어간 숫자도 참으로 문제는되는 상황
-	고치기 위해서는 월과 일을 따로 검사해야 되는 상황, 좀더 보완해야 함!!
-	String 사용자 정의에 substr을 만들어야함
-	*/
+
 
 	return true;
 }

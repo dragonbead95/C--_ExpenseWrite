@@ -9,9 +9,9 @@ control::control() : num(0)
 
 void control::write()
 {
-	String myDate;	// 날짜
+	string myDate;	// 날짜
 	int mymoney;	// 금액
-	String myUsing;	// 용도
+	string myUsing;	// 용도
 	int myCategory;	// 분류
 
 	cout << "[날짜(2019-02-15), 금액, 용도, 분류]를 입력해주세요" << endl;
@@ -20,7 +20,12 @@ void control::write()
 	cin >> myDate >> mymoney >> myUsing >> myCategory;
 
 	try {
-		if (myDate.isDate() == false)
+		string temp = myDate.substr(5, 2);
+		if (temp < "01" || temp >"12")
+			throw DateException(myDate);
+
+		temp = myDate.substr(8, 2);
+		if (temp < "01" || temp>"31")
 			throw DateException(myDate);
 		if (mymoney < 0)
 			throw MinusException(mymoney);
@@ -29,11 +34,11 @@ void control::write()
 
 		arr[num++] = new expense(myDate, mymoney, myUsing, myCategory);
 	}
-	catch(ExpenseException &expn){
+	catch (ExpenseException &expn)
+	{
 		expn.ShowExceptionReason();
 	}
 	
-
 	
 }
 

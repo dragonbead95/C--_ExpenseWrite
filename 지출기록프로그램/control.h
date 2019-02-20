@@ -3,6 +3,7 @@
 
 #include "expense.h"
 #include "BoundCheckArray.h"
+
 class control
 {
 private:

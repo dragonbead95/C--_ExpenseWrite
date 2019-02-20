@@ -1,6 +1,8 @@
 #ifndef __ACCOUNT_EXCPETION_H_
 #define __ACCOUNT_EXCPETION_H_
-#include "String.h"
+
+#include <string>
+using std::string;
 
 class ExpenseException
 {
@@ -29,9 +31,9 @@ public:
 class DateException : public ExpenseException
 {
 private:
-	String str;
+	string str;
 public:
-	DateException(String s);
+	DateException(string s);
 	void ShowExceptionReason();
 };
 #endif // !__ACCOUNT_EXCPETION_H_
