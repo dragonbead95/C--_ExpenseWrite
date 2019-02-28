@@ -3,7 +3,14 @@
 
 #include "expense.h"
 #include "BoundCheckArray.h"
-
+#include <fstream>
+#include <vector>
+#include <sstream>
+using std::ofstream;
+using std::ifstream;
+using std::vector;
+using std::stringstream;
+using std::ios;
 class control
 {
 private:

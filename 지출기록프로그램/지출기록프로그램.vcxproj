@@ -31,6 +31,9 @@
     <ClCompile Include="expense.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="test.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{7BBB0939-0BF2-41ED-8441-ED2FA2EF5078}</ProjectGuid>

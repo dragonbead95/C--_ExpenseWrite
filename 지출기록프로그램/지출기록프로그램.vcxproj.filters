@@ -72,4 +72,7 @@
       <Filter>소스 파일\예외처리</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="test.txt" />
+  </ItemGroup>
 </Project>

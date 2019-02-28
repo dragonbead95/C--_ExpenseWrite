@@ -13,6 +13,7 @@ void control::write()
 	int mymoney;	// 금액
 	string myUsing;	// 용도
 	int myCategory;	// 분류
+	ofstream out("test.txt",ios::app);
 
 	cout << "[날짜(2019-02-15), 금액, 용도, 분류]를 입력해주세요" << endl;
 	cout << "분류 : 1.식비 2.교통비 3.통신비 4.간식비 5.유흥비 6.생활비 7.도서비 8.교육비 9.문구비 10.의료비 11.의류비 12.기타"<< endl;
@@ -32,8 +33,10 @@ void control::write()
 		if (myCategory < 1 || myCategory>12)
 			throw CategoryException(myCategory);
 
-		arr[num++] = new expense(myDate, mymoney, myUsing, myCategory);
+		out << myDate << '\t' << mymoney << '\t' << myUsing << '\t' << myCategory<<endl;
 		sort();
+		out.close();
+		
 	}
 	catch (ExpenseException &expn)
 	{
@@ -45,21 +48,49 @@ void control::write()
 
 void control::ShowAllExpense()
 {
-	for (int i = 0;i < num;i++)
+	string in_line;
+	ifstream in("test.txt");
+	string buf;
+	vector<string> tokens;
+
+	while (getline(in, in_line))
 	{
-		arr[i]->ShowExpenseInfo();
+		stringstream ss(in_line);
+		while (ss >> buf)
+		{
+			tokens.push_back(buf);
+		}
+		for (int i = 0;i < tokens.size();i++)
+		{
+			cout << tokens[i] << '\t';
+		}
+		cout << endl;
+		tokens.clear();
 	}
+
+	in.close();
 	ShowMoneySum();
 }
 
 void control::ShowMoneySum()
 {
+	string in_line;
+	ifstream in("test.txt");
+	string buf;
+	vector<string> tokens;
 	int sum = 0;
-	for (int i = 0;i < num;i++)
+	while (getline(in, in_line))
 	{
-		sum += arr[i]->GetMoney();
+		stringstream ss(in_line);
+		while (ss >> buf)
+		{
+			tokens.push_back(buf);
+		}
+		sum += atoi(tokens[1].c_str());
+		tokens.clear();
 	}
-	cout <<"금액 총합 : "<< sum << endl;
+	cout << "금액 총합 : " << sum << endl;
+	in.close();
 }
 
 void control::ShowDateSearch(string year)
@@ -203,17 +234,16 @@ void control::ShowCategorySearch()
 
 void control::sort()
 {
-	for (int i = 0;i < num;i++)
+	string in_line;
+	ifstream in("test.txt");
+	string buf;
+	vector<stringstream> ssArr;
+
+	while (getline(in, in_line))
 	{
-		for (int k = i + 1;k < num;k++)
-		{
-			if (arr[i]->GetDate() > arr[k]->GetDate())
-			{
-				expense* temp = arr[i];
-				arr[i] = arr[k];
-				arr[k] = temp;
-			}
-		}
-		
+		stringstream ss(in_line);
+		ssArr.push_back(ss);
 	}
+
+	in.close();
 }
