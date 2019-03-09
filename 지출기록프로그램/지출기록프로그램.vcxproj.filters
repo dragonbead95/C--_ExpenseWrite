@@ -57,6 +57,15 @@
     <ClInclude Include="ExpenseCommon.h">
       <Filter>헤더 파일\비용공통</Filter>
     </ClInclude>
+    <ClInclude Include="stream.h">
+      <Filter>헤더 파일\제어</Filter>
+    </ClInclude>
+    <ClInclude Include="expense_info.h">
+      <Filter>헤더 파일\제어</Filter>
+    </ClInclude>
+    <ClInclude Include="library.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="expense.cpp">
@@ -71,8 +80,15 @@
     <ClCompile Include="AccountExceptioncpp.cpp">
       <Filter>소스 파일\예외처리</Filter>
     </ClCompile>
+    <ClCompile Include="stream.cpp">
+      <Filter>소스 파일\제어</Filter>
+    </ClCompile>
+    <ClCompile Include="expense_info.cpp">
+      <Filter>소스 파일\제어</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="test.txt" />
+    <Text Include="UpdateMemo.txt" />
   </ItemGroup>
 </Project>

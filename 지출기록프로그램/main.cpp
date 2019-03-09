@@ -10,11 +10,14 @@
 *******************************************/
 #include "control.h"
 #include "ExpenseCommon.h"
+#include "stream.h"
 
 int main(void)
 {
 	control manager;
+	stream io;
 	int number;
+	
 	while (1)
 	{
 		manager.ShowMenu();
@@ -23,9 +26,9 @@ int main(void)
 
 		switch (number)
 		{
-		case WRITE: manager.write();
+		case WRITE: manager.write(&io);
 			break;
-		case ALLSEARCH: manager.ShowAllExpense();
+		case ALLSEARCH: manager.ShowAllExpense(&io);
 			break;
 		case SEARCH:
 			manager.ShowSearchMenu();

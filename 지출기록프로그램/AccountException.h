@@ -1,8 +1,7 @@
 #ifndef __ACCOUNT_EXCPETION_H_
 #define __ACCOUNT_EXCPETION_H_
 
-#include <string>
-using std::string;
+#include "library.h"
 
 class ExpenseException
 {

@@ -1,96 +1,51 @@
 #include "control.h"
 #include "AccountException.h"
-
+#include "expense_info.h"
+#include "stream.h"
 
 control::control() : num(0)
 {
 
 }
 
-void control::write()
+void control::write(stream * io)
 {
-	string myDate;	// 날짜
-	int mymoney;	// 금액
-	string myUsing;	// 용도
-	int myCategory;	// 분류
-	ofstream out("test.txt",ios::app);
+	expense_info exin;	// 지출 정보가 들어있는 객체
 
-	cout << "[날짜(2019-02-15), 금액, 용도, 분류]를 입력해주세요" << endl;
-	cout << "분류 : 1.식비 2.교통비 3.통신비 4.간식비 5.유흥비 6.생활비 7.도서비 8.교육비 9.문구비 10.의료비 11.의류비 12.기타"<< endl;
-
-	cin >> myDate >> mymoney >> myUsing >> myCategory;
+	exin.expense_input();	// 지출정보를 입력받아 멤버에 저장
+	
 
 	try {
-		string temp = myDate.substr(5, 2);
+		string temp = exin.getDate().substr(5, 2);
 		if (temp < "01" || temp >"12")
-			throw DateException(myDate);
+			throw DateException(exin.getDate());
 
-		temp = myDate.substr(8, 2);
+		temp = exin.getDate().substr(8, 2);
 		if (temp < "01" || temp>"31")
-			throw DateException(myDate);
-		if (mymoney < 0)
-			throw MinusException(mymoney);
-		if (myCategory < 1 || myCategory>12)
-			throw CategoryException(myCategory);
+			throw DateException(exin.getDate());
+		if (exin.getMoney() < 0)
+			throw MinusException(exin.getMoney());
+		if (exin.getCategory() < 1 || exin.getCategory()>12)
+			throw CategoryException(exin.getCategory());
 
-		out << myDate << '\t' << mymoney << '\t' << myUsing << '\t' << myCategory<<endl;
-		sort();
-		out.close();
-		
+		io->input(exin);
 	}
 	catch (ExpenseException &expn)
 	{
 		expn.ShowExceptionReason();
 	}
 	
-	
 }
 
-void control::ShowAllExpense()
+void control::ShowAllExpense(stream * io)
 {
-	string in_line;
-	ifstream in("test.txt");
-	string buf;
-	vector<string> tokens;
-
-	while (getline(in, in_line))
-	{
-		stringstream ss(in_line);
-		while (ss >> buf)
-		{
-			tokens.push_back(buf);
-		}
-		for (int i = 0;i < tokens.size();i++)
-		{
-			cout << tokens[i] << '\t';
-		}
-		cout << endl;
-		tokens.clear();
-	}
-
-	in.close();
-	ShowMoneySum();
+	io->print();
+	io->printSum();
 }
 
-void control::ShowMoneySum()
+void control::ShowMoneySum(stream * io)
 {
-	string in_line;
-	ifstream in("test.txt");
-	string buf;
-	vector<string> tokens;
-	int sum = 0;
-	while (getline(in, in_line))
-	{
-		stringstream ss(in_line);
-		while (ss >> buf)
-		{
-			tokens.push_back(buf);
-		}
-		sum += atoi(tokens[1].c_str());
-		tokens.clear();
-	}
-	cout << "금액 총합 : " << sum << endl;
-	in.close();
+	io->printSum();
 }
 
 void control::ShowDateSearch(string year)
@@ -230,20 +185,4 @@ void control::ShowCategorySearch()
 		}
 	}
 	cout << "금액 총합 : " << sum << endl;
-}
-
-void control::sort()
-{
-	string in_line;
-	ifstream in("test.txt");
-	string buf;
-	vector<stringstream> ssArr;
-
-	while (getline(in, in_line))
-	{
-		stringstream ss(in_line);
-		ssArr.push_back(ss);
-	}
-
-	in.close();
 }

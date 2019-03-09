@@ -3,10 +3,7 @@
 
 #include <iostream>
 #include <cstdlib>
-
-using std::cout;
-using std::endl;
-using std::ostream;
+#include "library.h"
 
 template <class T>
 class BoundCheckArray

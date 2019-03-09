@@ -1,8 +1,7 @@
 #ifndef __EXPENSE_H_
 #define __EXPENSE_H_
 
-#include <iostream>
-#include <string>
+#include "library.h"
 #include "ExpenseCommon.h"
 
 
