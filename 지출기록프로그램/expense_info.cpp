@@ -1,5 +1,6 @@
 
 #include "expense_info.h"
+#include "ExpenseCommon.h"
 
 expense_info::expense_info()
 {
@@ -9,6 +10,55 @@ expense_info::expense_info(string d, int m, string u, int c)
 	: myDate(d), mymoney(m), myUsing(u), myCategory(c)
 {
 
+}
+
+/*지출 기록 출력*/
+void expense_info::ShowExpenseInfo() const
+{
+	cout << "날짜:" << myDate
+		<< " 금액:" << mymoney
+		<< " 용도:" << myUsing
+		<< " 분류:";
+	switch (myCategory)
+	{
+	case FOOD:
+		cout << "식비" << endl;
+		break;
+	case PUBLIC_TRANSFER:
+		cout << "교통비" << endl;
+		break;
+	case POSTAGE:
+		cout << "통신비" << endl;
+		break;
+	case SNACK:
+		cout << "간식비" << endl;
+		break;
+	case ENTERTAINMENT:
+		cout << "유흥비" << endl;
+		break;
+	case LIFE:
+		cout << "생활비" << endl;
+		break;
+	case BOOK:
+		cout << "도서비" << endl;
+		break;
+	case EDUCATION:
+		cout << "교육비" << endl;
+		break;
+	case STATIONARY:
+		cout << "문구비" << endl;
+		break;
+	case MEDICAL:
+		cout << "의료비" << endl;
+		break;
+	case CLOTHES:
+		cout << "의류비" << endl;
+		break;
+	case ETC:
+		cout << "기타" << endl;
+		break;
+
+	}
 }
 
 void expense_info::expense_input()

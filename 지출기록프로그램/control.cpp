@@ -134,57 +134,105 @@ void control::ShowMoneySum(stream * io)
 {
 	io->printSum();
 }
-/*
+
 void control::ShowDateSearch(string year)
 {
-	string temp;
+	List list;
+	listInsert(&list);
+
+	expense_info temp;
+	string temp_date;
 	int sum = 0;
-	for (int i = 0;i < num;i++)
+
+	if (list.LFirst(&temp))
 	{
-		temp = arr[i]->GetDate();
-		if (temp.substr(0, 4) == year)
+		temp_date = temp.getDate();
+		if (temp_date.substr(0, 4) == year)
 		{
-			arr[i]->ShowExpenseInfo();
-			sum += arr[i]->GetMoney();
+			temp.ShowExpenseInfo();
+			sum += temp.getMoney();
+		}
+		
+		while (list.LNext(&temp))
+		{
+			temp_date = temp.getDate();
+			if (temp_date.substr(0, 4) == year)
+			{
+				temp.ShowExpenseInfo();
+				sum += temp.getMoney();
+			}
 		}
 	}
+
 	cout << "금액 총합 : " << sum << endl;
 }
-*/
-/*
+
+
 void control::ShowDateSearch(string year,string month)
 {
-	string temp;
+	List list;
+	listInsert(&list);
+
+	expense_info temp;
+	string temp_date;
 	int sum = 0;
-	for (int i = 0;i < num;i++)
+
+	if (list.LFirst(&temp))
 	{
-		temp = arr[i]->GetDate();
-		if (temp.substr(0, 4) == year && temp.substr(5,2)==month)
+		temp_date = temp.getDate();
+		if (temp_date.substr(0, 4) == year && temp_date.substr(5, 2) == month)
 		{
-			arr[i]->ShowExpenseInfo();
-			sum += arr[i]->GetMoney();
+			temp.ShowExpenseInfo();
+			sum += temp.getMoney();
+		}
+
+		while (list.LNext(&temp))
+		{
+			temp_date = temp.getDate();
+			if (temp_date.substr(0, 4) == year && temp_date.substr(5, 2) == month)
+			{
+				temp.ShowExpenseInfo();
+				sum += temp.getMoney();
+			}
 		}
 	}
+
 	cout << "금액 총합 : " << sum << endl;
 }
-*/
-/*
+
+
 void control::ShowDateSearch(string year, string month, string day)
 {
-	string temp;
+	List list;
+	listInsert(&list);
+
+	expense_info temp;
+	string temp_date;
 	int sum = 0;
-	for (int i = 0;i < num;i++)
+
+	if (list.LFirst(&temp))
 	{
-		temp = arr[i]->GetDate();
-		if (temp.substr(0, 4) == year && temp.substr(5, 2) == month && temp.substr(8,2)==day)
+		temp_date = temp.getDate();
+		if (temp_date.substr(0, 4) == year && temp_date.substr(5, 2) == month && temp_date.substr(8, 2) == day)
 		{
-			arr[i]->ShowExpenseInfo();
-			sum += arr[i]->GetMoney();
+			temp.ShowExpenseInfo();
+			sum += temp.getMoney();
+		}
+
+		while (list.LNext(&temp))
+		{
+			temp_date = temp.getDate();
+			if (temp_date.substr(0, 4) == year && temp_date.substr(5, 2) == month && temp_date.substr(8, 2) == day)
+			{
+				temp.ShowExpenseInfo();
+				sum += temp.getMoney();
+			}
 		}
 	}
+
 	cout << "금액 총합 : " << sum << endl;
 }
-*/
+
 void control::ShowMenu() const
 {
 	cout << "1. 지출기록" << endl;
@@ -201,7 +249,7 @@ void control::ShowSearchMenu() const
 	cout << "4. 뒤로가기" << endl;
 	cout << "5. 종료" << endl;
 }
-/*
+
 void control::ShowDateSearch()
 {
 	int number;
@@ -239,42 +287,68 @@ void control::ShowDateSearch()
 		return;
 	}
 }
-*/
-/*
+
+
 void control::ShowMoneySearch()
 {
+	List list;
+	listInsert(&list);
+	expense_info temp;
+
 	int m;
 	cout << "검색하고싶은 금액이상을 입력해주세요." << endl;
 	cin >> m;
 
 	int sum = 0;
-	for (int i = 0;i < num;i++)
+	if (list.LFirst(&temp))
 	{
-		if (arr[i]->GetMoney() >= m)
+		if (temp.getMoney()>=m)
 		{
-			arr[i]->ShowExpenseInfo();
-			sum += arr[i]->GetMoney();
+			temp.ShowExpenseInfo();
+			sum += temp.getMoney();
+		}
+
+		while (list.LNext(&temp))
+		{
+			if (temp.getMoney() >= m)
+			{
+				temp.ShowExpenseInfo();
+				sum += temp.getMoney();
+			}
 		}
 	}
 	cout << "금액 총합 : " << sum << endl;
 }
-*/
-/*
+
+
 void control::ShowCategorySearch()
 {
+	List list;
+	expense_info temp;
 	int c,sum=0;
+
 	cout << "검색하고 싶은 분류를 입력해주세요." << endl;
 	cout << "분류 : 1.식비 2.교통비 3.통신비 4.간식비 5.유흥비 6.생활비 7.도서비 8.교육비 9.문구비 10.의료비 11.의류비 12.기타" << endl;
 	cin >> c;
 	
-	for (int i = 0;i < num;i++)
+	listInsert(&list);
+
+	if (list.LFirst(&temp))
 	{
-		if (arr[i]->GetCategory() == c)
+		if (temp.getCategory()==c)
 		{
-			arr[i]->ShowExpenseInfo();
-			sum += arr[i]->GetMoney();
+			temp.ShowExpenseInfo();
+			sum += temp.getMoney();
+		}
+
+		while (list.LNext(&temp))
+		{
+			if (temp.getCategory() == c)
+			{
+				temp.ShowExpenseInfo();
+				sum += temp.getMoney();
+			}
 		}
 	}
 	cout << "금액 총합 : " << sum << endl;
 }
-*/

@@ -17,12 +17,12 @@ public:
 	void ShowMoneySum(stream * io);
 	void ShowMenu() const;
 	void ShowSearchMenu() const;
-	//void ShowDateSearch();
-	//void ShowDateSearch(string year);	// 연도별 검색
-	//void ShowDateSearch(string year, string month);	// 월별 검색
-	//void ShowDateSearch(string year, string month, string day);	// 월별 검색
-	//void ShowMoneySearch();	// 금액별 검색
-	//void ShowCategorySearch();	// 분류별 검색
+	void ShowDateSearch();
+	void ShowDateSearch(string year);	// 연도별 검색
+	void ShowDateSearch(string year, string month);	// 월별 검색
+	void ShowDateSearch(string year, string month, string day);	// 월별 검색
+	void ShowMoneySearch();	// 금액별 검색
+	void ShowCategorySearch();	// 분류별 검색
 	void listInsert(List * list);	//txt파일을 리스트에 삽입
 	void sort();	// 정렬 기능
 	

@@ -13,6 +13,7 @@ private:
 public:
 	expense_info();
 	expense_info(string d, int m, string u, int c);
+	void ShowExpenseInfo() const;
 	void expense_input();
 	string getDate() const;
 	int getMoney() const;
