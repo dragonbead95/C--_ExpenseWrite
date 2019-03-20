@@ -37,13 +37,13 @@ int main(void)
 			switch (number)
 			{
 			case search::DATE_SEARCH:
-				manager.ShowDateSearch();
+//				manager.ShowDateSearch();
 				break;
 			case search::MONEY_SEARCH:
-				manager.ShowMoneySearch();
+//				manager.ShowMoneySearch();
 				break;
 			case search::CATEGORY_SEARCH:
-				manager.ShowCategorySearch();
+//				manager.ShowCategorySearch();
 				break;
 			case search::BACK:
 				break;

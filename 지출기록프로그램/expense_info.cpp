@@ -1,6 +1,16 @@
 
 #include "expense_info.h"
 
+expense_info::expense_info()
+{
+
+}
+expense_info::expense_info(string d, int m, string u, int c)
+	: myDate(d), mymoney(m), myUsing(u), myCategory(c)
+{
+
+}
+
 void expense_info::expense_input()
 {
 	cout << "[날짜(2019-02-15), 금액, 용도, 분류]를 입력해주세요" << endl;

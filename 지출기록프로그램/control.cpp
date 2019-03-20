@@ -28,13 +28,100 @@ void control::write(stream * io)
 		if (exin.getCategory() < 1 || exin.getCategory()>12)
 			throw CategoryException(exin.getCategory());
 
-		io->input(exin);
+		io->input(exin);	// 입력받은 지출정보들을 txt파일에 저장한다.
+		sort();	// 지출정보들을 정렬해서 txt파일에 다시 저장한다.
 	}
 	catch (ExpenseException &expn)
 	{
 		expn.ShowExceptionReason();
 	}
 	
+}
+
+// 연결리스트에서 날짜를 기준으로 정렬하는 기준함수
+int WhoIsPreced(LData data1, LData data2)
+{
+	int year1, year2;
+	int month1, month2;
+	int day1, day2;
+
+	year1 = atoi(data1.getDate().substr(0, 4).c_str());
+	year2 = atoi(data2.getDate().substr(0, 4).c_str());
+
+	month1 = atoi(data1.getDate().substr(5, 2).c_str());
+	month2 = atoi(data2.getDate().substr(5, 2).c_str());
+
+	day1 = atoi(data1.getDate().substr(8, 2).c_str());
+	day2 = atoi(data2.getDate().substr(8, 2).c_str());
+
+	if (year1 == year2)
+	{
+		if (month1 == month2)
+		{
+			if (day1 == day2)
+				return 0;
+			else if (day1 < day2)
+				return 0;
+			else
+				return 1;
+		}
+		else if (month1 < month2)
+			return 0;
+		else
+			return 1;
+	}
+	else if (year1 < year2)
+	{
+		return 0;
+	}
+	else {
+		return 1;
+	}
+
+}
+
+// test.txt에 있는 지출정보들을 list 자료구조로 옮기는 함수
+void control::listInsert(List * list)
+{
+	string in_line;
+	ifstream in("test.txt");
+	string buf;
+	vector<string> tokens;
+
+	while (getline(in, in_line))
+	{
+		stringstream ss(in_line);
+		while (ss >> buf)
+		{
+			tokens.push_back(buf);
+		}
+		expense_info exbuf(tokens[0], atoi(tokens[1].c_str()), tokens[2], atoi(tokens[3].c_str()));
+
+		list->LInsert(exbuf);
+		tokens.clear();
+	}
+
+	in.close();
+}
+
+void control::sort()
+{
+	List list;
+	list.SetSortRule(WhoIsPreced);
+	listInsert(&list);
+	ofstream out2("test.txt");
+	expense_info temp;
+
+	if (list.LFirst(&temp))
+	{
+		out2 << temp.getDate() << '\t' << temp.getMoney() << '\t' << temp.getUsing() << '\t' << temp.getCategory() << endl;
+
+		while (list.LNext(&temp))
+		{
+			out2 << temp.getDate() << '\t' << temp.getMoney() << '\t' << temp.getUsing() << '\t' << temp.getCategory() << endl;
+		}
+	}
+	out2.close();
 }
 
 void control::ShowAllExpense(stream * io)
@@ -47,7 +134,7 @@ void control::ShowMoneySum(stream * io)
 {
 	io->printSum();
 }
-
+/*
 void control::ShowDateSearch(string year)
 {
 	string temp;
@@ -63,7 +150,8 @@ void control::ShowDateSearch(string year)
 	}
 	cout << "금액 총합 : " << sum << endl;
 }
-
+*/
+/*
 void control::ShowDateSearch(string year,string month)
 {
 	string temp;
@@ -79,7 +167,8 @@ void control::ShowDateSearch(string year,string month)
 	}
 	cout << "금액 총합 : " << sum << endl;
 }
-
+*/
+/*
 void control::ShowDateSearch(string year, string month, string day)
 {
 	string temp;
@@ -95,7 +184,7 @@ void control::ShowDateSearch(string year, string month, string day)
 	}
 	cout << "금액 총합 : " << sum << endl;
 }
-
+*/
 void control::ShowMenu() const
 {
 	cout << "1. 지출기록" << endl;
@@ -112,7 +201,7 @@ void control::ShowSearchMenu() const
 	cout << "4. 뒤로가기" << endl;
 	cout << "5. 종료" << endl;
 }
-
+/*
 void control::ShowDateSearch()
 {
 	int number;
@@ -150,7 +239,8 @@ void control::ShowDateSearch()
 		return;
 	}
 }
-
+*/
+/*
 void control::ShowMoneySearch()
 {
 	int m;
@@ -168,7 +258,8 @@ void control::ShowMoneySearch()
 	}
 	cout << "금액 총합 : " << sum << endl;
 }
-
+*/
+/*
 void control::ShowCategorySearch()
 {
 	int c,sum=0;
@@ -186,3 +277,4 @@ void control::ShowCategorySearch()
 	}
 	cout << "금액 총합 : " << sum << endl;
 }
+*/

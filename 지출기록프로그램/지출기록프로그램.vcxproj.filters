@@ -25,9 +25,6 @@
     <Filter Include="소스 파일\예외처리">
       <UniqueIdentifier>{ad9a88e6-167f-4561-864e-0d890e4efd7b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\배열">
-      <UniqueIdentifier>{c1152257-ef66-4ba2-a55f-a978eea7b73a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="헤더 파일\예외">
       <UniqueIdentifier>{42b2880c-3a51-406c-a023-bdb93cca32a2}</UniqueIdentifier>
     </Filter>
@@ -40,19 +37,19 @@
     <Filter Include="헤더 파일\비용공통">
       <UniqueIdentifier>{d9df5245-3d4b-4763-97fa-ac8a513974b5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\연결리스트">
+      <UniqueIdentifier>{e9f30f62-3d77-441e-b766-2a5823f9fdb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\연결리스트">
+      <UniqueIdentifier>{cf242c28-2cc8-470a-bdfb-9a9c8668a9bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BoundCheckArray.h">
-      <Filter>헤더 파일\배열</Filter>
-    </ClInclude>
     <ClInclude Include="AccountException.h">
       <Filter>헤더 파일\예외</Filter>
     </ClInclude>
     <ClInclude Include="control.h">
       <Filter>헤더 파일\제어</Filter>
-    </ClInclude>
-    <ClInclude Include="expense.h">
-      <Filter>헤더 파일\비용</Filter>
     </ClInclude>
     <ClInclude Include="ExpenseCommon.h">
       <Filter>헤더 파일\비용공통</Filter>
@@ -60,17 +57,17 @@
     <ClInclude Include="stream.h">
       <Filter>헤더 파일\제어</Filter>
     </ClInclude>
-    <ClInclude Include="expense_info.h">
-      <Filter>헤더 파일\제어</Filter>
-    </ClInclude>
     <ClInclude Include="library.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="DLinkedList.h">
+      <Filter>헤더 파일\연결리스트</Filter>
+    </ClInclude>
+    <ClInclude Include="expense_info.h">
+      <Filter>헤더 파일\비용</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="expense.cpp">
-      <Filter>소스 파일\비용</Filter>
-    </ClCompile>
     <ClCompile Include="control.cpp">
       <Filter>소스 파일\제어</Filter>
     </ClCompile>
@@ -85,6 +82,9 @@
     </ClCompile>
     <ClCompile Include="expense_info.cpp">
       <Filter>소스 파일\제어</Filter>
+    </ClCompile>
+    <ClCompile Include="DLinkedList.cpp">
+      <Filter>소스 파일\연결리스트</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -8,7 +8,7 @@ stream::stream()
 void stream::input(expense_info exin)
 {
 	out << exin.getDate() << '\t' << exin.getMoney() << '\t' << exin.getUsing() << '\t' << exin.getCategory() << endl;
-	out.close();
+	//out.close();
 }
 void stream::print()
 {

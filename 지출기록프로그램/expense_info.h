@@ -11,6 +11,8 @@ private:
 	string myUsing;	// 용도
 	int myCategory;	// 분류
 public:
+	expense_info();
+	expense_info(string d, int m, string u, int c);
 	void expense_input();
 	string getDate() const;
 	int getMoney() const;

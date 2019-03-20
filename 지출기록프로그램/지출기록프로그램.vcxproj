@@ -20,9 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AccountException.h" />
-    <ClInclude Include="BoundCheckArray.h" />
     <ClInclude Include="control.h" />
-    <ClInclude Include="expense.h" />
+    <ClInclude Include="DLinkedList.h" />
     <ClInclude Include="ExpenseCommon.h" />
     <ClInclude Include="expense_info.h" />
     <ClInclude Include="library.h" />
@@ -31,7 +30,7 @@
   <ItemGroup>
     <ClCompile Include="AccountExceptioncpp.cpp" />
     <ClCompile Include="control.cpp" />
-    <ClCompile Include="expense.cpp" />
+    <ClCompile Include="DLinkedList.cpp" />
     <ClCompile Include="expense_info.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="stream.cpp" />
