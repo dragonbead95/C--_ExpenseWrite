@@ -25,8 +25,6 @@ void control::write(stream * io)
 			throw DateException(exin.getDate());
 		if (exin.getMoney() < 0)
 			throw MinusException(exin.getMoney());
-		if (exin.getCategory() < 1 || exin.getCategory()>12)
-			throw CategoryException(exin.getCategory());
 
 		io->input(exin);	// 입력받은 지출정보들을 txt파일에 저장한다.
 		sort();	// 지출정보들을 정렬해서 txt파일에 다시 저장한다.
@@ -84,7 +82,7 @@ int WhoIsPreced(LData data1, LData data2)
 void control::listInsert(List * list)
 {
 	string in_line;
-	ifstream in("test.txt");
+	ifstream in("2018년_가계부_TXT버전.txt");
 	string buf;
 	vector<string> tokens;
 
@@ -95,7 +93,7 @@ void control::listInsert(List * list)
 		{
 			tokens.push_back(buf);
 		}
-		expense_info exbuf(tokens[0], atoi(tokens[1].c_str()), tokens[2], atoi(tokens[3].c_str()));
+		expense_info exbuf(tokens[0], atoi(tokens[1].c_str()), tokens[2],tokens[3]);
 
 		list->LInsert(exbuf);
 		tokens.clear();
@@ -109,7 +107,7 @@ void control::sort()
 	List list;
 	list.SetSortRule(WhoIsPreced);
 	listInsert(&list);
-	ofstream out2("test.txt");
+	ofstream out2("2018년_가계부_TXT버전.txt");
 	expense_info temp;
 
 	if (list.LFirst(&temp))
@@ -127,6 +125,7 @@ void control::sort()
 void control::ShowAllExpense(stream * io)
 {
 	io->print();
+	io->printCategorySum();
 	io->printSum();
 }
 
@@ -144,6 +143,7 @@ void control::ShowDateSearch(string year)
 	string temp_date;
 	int sum = 0;
 
+	ShowHeader();	// 메뉴 제목 출력
 	if (list.LFirst(&temp))
 	{
 		temp_date = temp.getDate();
@@ -177,6 +177,7 @@ void control::ShowDateSearch(string year,string month)
 	string temp_date;
 	int sum = 0;
 
+	ShowHeader();	// 메뉴 제목 출력
 	if (list.LFirst(&temp))
 	{
 		temp_date = temp.getDate();
@@ -210,6 +211,7 @@ void control::ShowDateSearch(string year, string month, string day)
 	string temp_date;
 	int sum = 0;
 
+	ShowHeader();	// 메뉴 제목 출력
 	if (list.LFirst(&temp))
 	{
 		temp_date = temp.getDate();
@@ -233,22 +235,6 @@ void control::ShowDateSearch(string year, string month, string day)
 	cout << "금액 총합 : " << sum << endl;
 }
 
-void control::ShowMenu() const
-{
-	cout << "1. 지출기록" << endl;
-	cout << "2. 지출전체검색" << endl;
-	cout << "3. 지출검색" << endl;
-	cout << "4. 종료" << endl;
-}
-
-void control::ShowSearchMenu() const
-{
-	cout << "1. 날짜별 검색" << endl;
-	cout << "2. 금액별 검색" << endl;
-	cout << "3. 분류별 검색" << endl;
-	cout << "4. 뒤로가기" << endl;
-	cout << "5. 종료" << endl;
-}
 
 void control::ShowDateSearch()
 {
@@ -300,6 +286,8 @@ void control::ShowMoneySearch()
 	cin >> m;
 
 	int sum = 0;
+
+	ShowHeader();	// 메뉴 제목 출력
 	if (list.LFirst(&temp))
 	{
 		if (temp.getMoney()>=m)
@@ -325,14 +313,16 @@ void control::ShowCategorySearch()
 {
 	List list;
 	expense_info temp;
-	int c,sum=0;
+	int sum=0;
+	string c;
 
-	cout << "검색하고 싶은 분류를 입력해주세요." << endl;
+	cout << "검색하고 싶은 분류를 한글로 입력해주세요." << endl;
 	cout << "분류 : 1.식비 2.교통비 3.통신비 4.간식비 5.유흥비 6.생활비 7.도서비 8.교육비 9.문구비 10.의료비 11.의류비 12.기타" << endl;
 	cin >> c;
 	
 	listInsert(&list);
 
+	ShowHeader();	// 메뉴 제목 출력
 	if (list.LFirst(&temp))
 	{
 		if (temp.getCategory()==c)
@@ -352,3 +342,4 @@ void control::ShowCategorySearch()
 	}
 	cout << "금액 총합 : " << sum << endl;
 }
+

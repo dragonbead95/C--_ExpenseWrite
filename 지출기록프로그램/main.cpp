@@ -1,12 +1,9 @@
 /******************************************
-날짜 : 2019-02-28
+날짜 : 2019-03-22
 작성자 : 김용환
 제목 : 지출 기록 프로그램
-업데이트 : 0.4
-업데이트 : 지출을 작성할때 메모장에 입력되게 만듬
-2번 옵션인 지출전체검색시 메모장에서 읽어들여서
-지출 데이터와 금액의 총합을 출력함
-지출 작성시 날짜별로 정렬되서 입력되게 만들어야함
+업데이트 : 1
+업데이트 : 
 *******************************************/
 #include "control.h"
 #include "ExpenseCommon.h"
@@ -20,7 +17,7 @@ int main(void)
 	
 	while (1)
 	{
-		manager.ShowMenu();
+		ShowMenu();
 		cout << "선택 : ";
 		cin >> number;
 
@@ -31,7 +28,7 @@ int main(void)
 		case ALLSEARCH: manager.ShowAllExpense(&io);
 			break;
 		case SEARCH:
-			manager.ShowSearchMenu();
+			ShowSearchMenu();
 			cout << "선택 : ";
 			cin >> number;
 			switch (number)

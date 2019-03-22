@@ -6,7 +6,7 @@ expense_info::expense_info()
 {
 
 }
-expense_info::expense_info(string d, int m, string u, int c)
+expense_info::expense_info(string d, int m, string u, string c)
 	: myDate(d), mymoney(m), myUsing(u), myCategory(c)
 {
 
@@ -15,49 +15,15 @@ expense_info::expense_info(string d, int m, string u, int c)
 /*지출 기록 출력*/
 void expense_info::ShowExpenseInfo() const
 {
-	cout << "날짜:" << myDate
-		<< " 금액:" << mymoney
-		<< " 용도:" << myUsing
-		<< " 분류:";
-	switch (myCategory)
-	{
-	case FOOD:
-		cout << "식비" << endl;
-		break;
-	case PUBLIC_TRANSFER:
-		cout << "교통비" << endl;
-		break;
-	case POSTAGE:
-		cout << "통신비" << endl;
-		break;
-	case SNACK:
-		cout << "간식비" << endl;
-		break;
-	case ENTERTAINMENT:
-		cout << "유흥비" << endl;
-		break;
-	case LIFE:
-		cout << "생활비" << endl;
-		break;
-	case BOOK:
-		cout << "도서비" << endl;
-		break;
-	case EDUCATION:
-		cout << "교육비" << endl;
-		break;
-	case STATIONARY:
-		cout << "문구비" << endl;
-		break;
-	case MEDICAL:
-		cout << "의료비" << endl;
-		break;
-	case CLOTHES:
-		cout << "의류비" << endl;
-		break;
-	case ETC:
-		cout << "기타" << endl;
-		break;
+	string category_name[] = { " ","식비","교통비","통신비","간식비","유흥비","생활비","책","교육비","문구비","의료비","의류비","기타" };
 
+	
+	cout << myDate << '\t' << mymoney << '\t' << myUsing << '\t';
+
+	for (int i = 1;i < 13;i++)
+	{
+		if (myCategory == category_name[i])
+			cout << category_name[i]<< endl;
 	}
 }
 
@@ -83,7 +49,7 @@ string expense_info::getUsing() const
 	return myUsing;
 }
 
-int expense_info::getCategory() const
+string expense_info::getCategory() const
 {
 	return myCategory;
 }

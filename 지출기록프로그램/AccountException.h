@@ -17,16 +17,16 @@ public:
 	MinusException(int money);
 	void ShowExceptionReason();
 };
-
+/*
 class CategoryException : public ExpenseException
 {
 private:
-	int reqCate;	// 요청 분류
+	string reqCate;	// 요청 분류
 public:
-	CategoryException(int myCategory);
+	CategoryException(string myCategory);
 	void ShowExceptionReason();
 };
-
+*/
 class DateException : public ExpenseException
 {
 private:

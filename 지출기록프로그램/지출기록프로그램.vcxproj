@@ -25,6 +25,7 @@
     <ClInclude Include="ExpenseCommon.h" />
     <ClInclude Include="expense_info.h" />
     <ClInclude Include="library.h" />
+    <ClInclude Include="MenuOption.h" />
     <ClInclude Include="stream.h" />
   </ItemGroup>
   <ItemGroup>
@@ -33,10 +34,11 @@
     <ClCompile Include="DLinkedList.cpp" />
     <ClCompile Include="expense_info.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MenuOption.cpp" />
     <ClCompile Include="stream.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="test.txt" />
+    <Text Include="2018년_가계부_TXT버전.txt" />
     <Text Include="UpdateMemo.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

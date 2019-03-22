@@ -12,17 +12,18 @@ void MinusException::ShowExceptionReason()
 {
 	cout << "[예외 메시지: 금액" << reqDep << "은(는) 유효하지 않습니다.]" << endl;
 }
-
-CategoryException::CategoryException(int myCategory) : reqCate(myCategory)
+/*
+CategoryException::CategoryException(string myCategory) : reqCate(myCategory)
 {
 
 }
-
+*/
+/*
 void CategoryException::ShowExceptionReason()
 {
 	cout << "[예외 메시지: 1~12 사이의 숫자를 입력해주세요]" << endl;
 }
-
+*/
 DateException::DateException(string s)
 {
 	str = s;

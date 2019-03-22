@@ -66,6 +66,9 @@
     <ClInclude Include="expense_info.h">
       <Filter>헤더 파일\비용</Filter>
     </ClInclude>
+    <ClInclude Include="MenuOption.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="control.cpp">
@@ -80,15 +83,18 @@
     <ClCompile Include="stream.cpp">
       <Filter>소스 파일\제어</Filter>
     </ClCompile>
-    <ClCompile Include="expense_info.cpp">
-      <Filter>소스 파일\제어</Filter>
-    </ClCompile>
     <ClCompile Include="DLinkedList.cpp">
       <Filter>소스 파일\연결리스트</Filter>
     </ClCompile>
+    <ClCompile Include="MenuOption.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="expense_info.cpp">
+      <Filter>소스 파일\비용</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="test.txt" />
     <Text Include="UpdateMemo.txt" />
+    <Text Include="2018년_가계부_TXT버전.txt" />
   </ItemGroup>
 </Project>

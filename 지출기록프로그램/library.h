@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include "MenuOption.h"
 
 using std::cout;
 using std::endl;

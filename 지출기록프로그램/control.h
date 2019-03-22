@@ -16,6 +16,7 @@ public:
 	void ShowAllExpense(stream * io);
 	void ShowMoneySum(stream * io);
 	void ShowMenu() const;
+
 	void ShowSearchMenu() const;
 	void ShowDateSearch();
 	void ShowDateSearch(string year);	// 연도별 검색
